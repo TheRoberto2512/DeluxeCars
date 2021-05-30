@@ -1,19 +1,24 @@
-body {
+body /* -- IMPOSTAZIONI PER ADATTARE IL BODY DELLA PAGINA --*/
+{
+  height: 100%;
+  width: 100%;
   margin: 0;
+  display: table;
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgba(189, 189, 189, 0.918);
 }
 
-.navbar {
+.navbar /* -- NAVBAR --*/
+{ 
   overflow: hidden;
   background-image: linear-gradient(to top right, #000000 25%, #585858 100%);
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+  position: fixed;
+  top: 0; 
+  width: 100%;
 }
 
-
-.navbar a {
+.navbar a/* -- LINK ALLINEATI A SINISTRA NELLA NAVBAR --*/
+{ 
   float: left;
   display: block;
   color: #f2f2f2;
@@ -23,20 +28,57 @@ body {
   font-size: 20px;
 }
 
-.navbar-right {
+.navbar-right /* -- LINK ALLINEATI A DESTRA NELLA NAVBAR --*/
+{
   float: right;
 } 
 
-.diamond
-{
-  float: left;
-  padding: -14px -16px;
-  cursor: pointer;
-}
-
-.content
+.content /* -- CONTENUTO PRINCIPALE DI OGNI PAGINA, SERVE PER DISTINGURE IL CONTENUTO DA NAVBAR E FOOTER  --*/
 {
   padding: 16px;
   margin-top: 50px;
-  height: 1500px; /* Used in this example to enable scrolling */
+}
+
+
+.footer { /* -- FOOTER --*/
+  padding: 40px 0;
+  display: table-row;
+  height: 0;
+  background-image: linear-gradient(to top right, #000000 25%, #585858 100%);
+  color:#ffffff;
+}
+
+.footer a /* -- LINK PRESENTI NEL FOOTER --*/
+{
+  margin-bottom:0;
+  color:rgb(185, 184, 184);
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  text-decoration: none
+}
+
+.copyright /* -- COPYRIGHT NEL FOOTER --*/
+{
+  margin-top:15px;
+  text-align:center;
+  font-size:20px;
+  color:rgb(185, 184, 184);
+}
+
+.mainbox /* -- UTILIZZATO PER I DIVERSI <div> ALL'INTERNO DELLE PAGINE --*/
+{
+  border: 2px solid gray;
+  border-radius: 10px;
+  background: white;
+}
+
+.mainbox .row   /* -- AGGIUNGE I MARGINI ALLE RIGHE DEI <div> DENTRO IL <div> MAINBOX --*/
+{
+  margin-left: 15px;
+  margin-right: 15px;    
+}
+
+.nolink /* -- SERVE PER RIMUOVERE IL COLORE E IL TESTO SOTTOLINEATO DAI LINK --*/
+{
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  text-decoration: none;
 }

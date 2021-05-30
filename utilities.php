@@ -1,5 +1,6 @@
 <?php
 
+/*
     function OpenHead()
     {
         echo "<html>";
@@ -18,6 +19,12 @@
     {
         OpenHead();
         CloseHead();
+    } */
+
+    function Head()
+    {
+        echo "<link rel=stylesheet href=main.css?v=<?=".time().";?>";
+        echo "<link rel=icon href=./img/diamond.png>";
     }
 
     function Topbar()
