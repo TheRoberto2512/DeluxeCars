@@ -7,7 +7,7 @@
             include "methods.php";
             HeadMaster();
         ?>
-        <title>Privacy</title>
+        <title>Note Legali</title>
     </head>
     <body>
         <?php

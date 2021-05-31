@@ -94,7 +94,6 @@
             
                     $queryImpiegato = "SELECT tblschedetecniche.Marca, tblschedetecniche.Modello, tblvetture.Verniciatura, tblschedetecniche.IDSchedaTecnica FROM tblschedetecniche INNER JOIN tblvetture ON tblvetture.SchedaTecnicaID = tblschedetecniche.IDSchedaTecnica INNER JOIN tblacquisti ON tblvetture.AcquistoID = tblacquisti.IDAcquisto WHERE tblacquisti.ClienteID IS NULL AND tblacquisti.ImpiegatoID =";
                     $queryCliente = "SELECT tblschedetecniche.Marca, tblschedetecniche.Modello, tblvetture.Verniciatura, tblschedetecniche.IDSchedaTecnica FROM tblschedetecniche INNER JOIN tblvetture ON tblvetture.SchedaTecnicaID = tblschedetecniche.IDSchedaTecnica INNER JOIN tblacquisti ON tblvetture.AcquistoID = tblacquisti.IDAcquisto WHERE tblacquisti.ClienteID =";
-                    //$queryCliente = "SELECT tblschedetecniche.Marca, tblschedetecniche.Modello, tblvetture.Verniciatura, tblschedetecniche.IDSchedaTecnica FROM tblschedetecniche INNER JOIN tblvetture ON tblvetture.SchedaTecnicaID = tblschedetecniche.IDSchedaTecnica INNER JOIN tblacquisti ON tblvetture.AcquistoID = tblacquisti.IDAcquisto INNER JOIN tblclienti ON tblacquisti.ClienteID = tblclienti.`IDCliente` WHERE tblclienti.IDCliente =";
                     $connessione = mysqli_connect($DBhost, $DButente, $DBpassword, $DBnome);
                     if(mysqli_connect_errno()) die("conn non riuscita: " . mysqli_error($connessione));
                     $result;
@@ -127,6 +126,13 @@
                     }
                     mysqli_free_result($result);
                     mysqli_close($connessione);
+                ?>
+                <?php
+                    if($_SESSION['level'] == 1 )
+                    {
+                        echo "<div class='mainbox' style='margin-top: 20px;'> <table cellspacing='20' style='width: 100%;'> <tr><th colspan=2 style='font-size: 30px;'><center>Azioni Impiegato</center></th></tr>";
+                        echo "<tr><th style='font-size: 20px; width: 50%;'><a class='noLink' href='newCliente.php'>Registra nuovo cliente</a></th><th style='font-size: 20px; width: 50%;'><a class='noLink' href='newAcquisto.php'>Registra un nuovo Acquisto</a></th></tr></table></div>";
+                    }
                 ?>
         <?php
             CloseContent();

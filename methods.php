@@ -9,7 +9,7 @@
         {
             session_start();
             echo "<div class=navbar>";
-            echo "<a href=>Deluxe Cars</a>";
+            echo "<a href=home.php>Deluxe Cars</a>";
             echo "<a href=home.php>Home</a>";
             echo "<a href=catalogo.php>Catalogo</a>";
             echo "<div class=navbar-right>";
@@ -52,14 +52,9 @@
         function VerificaEsistenza($utenza, $email, $password)
         {
             include "infoDatabase.php";
-            //$f = fopen("log.txt", "a");
-            //fwrite($f, "password: $password \r\n");
             $password = hash("SHA256", Trim($password), false);
-            //fwrite($f, "hash password: $password \r\n");
-            //fwrite($f, "hash password: $password");
-            //$password = hash("SHA256", Trim($_POST['Password']), false);
-            $queryCliente = "SELECT * FROM tblClienti WHERE password = '".$password."' AND email = '".$email."';";
-            $queryImpiegato = "SELECT * FROM tblImpiegati WHERE password = '".$password."' AND email = '".$email."';";
+            $queryCliente = "SELECT * FROM tblclienti WHERE password = '".$password."' AND email = '".$email."';";
+            $queryImpiegato = "SELECT * FROM tblimpiegati WHERE password = '".$password."' AND email = '".$email."';";
             $connessione = mysqli_connect($DBhost, $DButente, $DBpassword, $DBnome);
             if(mysqli_connect_errno())
                 die("conn non riuscita: " . mysqli_error($connessione));
@@ -67,7 +62,6 @@
             if($utenza == "Cliente")
             {
                 $result = mysqli_query($connessione, $queryCliente);
-                //fwrite($f, "eseguo query cliente\r\n");
             }
             else
             {
@@ -80,10 +74,8 @@
                 $row = mysqli_fetch_array($result, MYSQLI_NUM);
                 if($utenza == "Cliente")
                 {
-                    //fwrite($f, $row[0]." ".$row[1]." ".$row[2]);
                     $_SESSION['userID'] = $row[0];
                     $_SESSION['level'] = 0;
-                    //fwrite($f, "setto cliente\r\n");
                 }
                 else
                 {

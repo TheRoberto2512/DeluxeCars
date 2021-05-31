@@ -49,11 +49,9 @@
             <p</center>
         </div>
         <?php
-            //echo "hey sto in cima";
             CloseContent();
             Footer();
     	?>
-
         
     </body>
 </html>
