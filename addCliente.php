@@ -13,7 +13,7 @@
     
     $ammessi = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     $password = array(); 
-    $alphaLength = strlen($ammessi) - 1; //put the length -1 in cache
+    $alphaLength = strlen($ammessi) - 1;
     for ($i = 0; $i < 12; $i++) {
         $r = rand(0, $alphaLength);
         $password[] = $ammessi[$r];
@@ -35,6 +35,16 @@
     {
         //deve inviare una mail al cliente per comuncargli la password
         //non essendo possibile farlo dal localhost visualizzo la password su un file di testo
+        /* 
+            $mail = "Gentile ".$_POST['nome']." ".$_POST['cognome'].",\r\n
+            Benvenuto su Deluxe Cars! La password per accedere è la seguente:\r\n
+            '".$password."'\r\n
+            Potrà cambiarla in qualsiasi momento dalla sua area personale.\r\n
+            Saluti,\r\n
+            Deluxe Cars.";
+            mail($_POST['email'], "Benvenuto su Deluxe Cars", $mail);
+        */
+
         $f = fopen("password", "a");
         fwrite($f, $_POST['email']." : ".$password."\r\n");
         fclose($f);
